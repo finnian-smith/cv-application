@@ -1,0 +1,71 @@
+.section-card {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: var(--primary-background-color);
+  width: 100%;
+  max-width: 400px;
+  font-family: var(--primary-font-family);
+}
+
+.saved-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 5px 20px;
+  border-radius: var(--border-radius-style);
+  margin: 10px 0;
+}
+
+.saved-data p {
+  margin: 10px 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-button,
+.edit-button,
+.add-button,
+.delete-button {
+  font-family: var(--primary-font-family);
+  color: var(--button-text-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius-style);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.save-button,
+.edit-button,
+.add-button {
+  background-color: var(--button-creative-background-color);
+}
+
+.save-button:hover,
+.edit-button:hover,
+.add-button:hover {
+  background-color: var(--button-creative-hover-background-color);
+}
+
+.edit-button {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-bottom: 15px;
+  width: 30%;
+}
+
+.add-button {
+  width: 100%;
+}
+
+.delete-button {
+  background-color: var(--button-destructive-background-color);
+}
+
+.delete-button:hover {
+  background-color: var(--button-destructive-hover-background-color);
+}

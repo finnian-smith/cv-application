@@ -6,5 +6,14 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-background-color: #ebebee;
+  --secondary-background-color: #ffffff;
+  --button-creative-background-color: #007bff;
+  --button-creative-hover-background-color: #0056b3;
+  --button-destructive-background-color: #f44336;
+  --button-destructive-hover-background-color: #c83227;
+  --button-text-color: #ffffff;
+  --box-shadow-style: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --border-radius-style: 5px;
 }
