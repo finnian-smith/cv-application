@@ -1,5 +1,5 @@
 import "../styles/InputContainer.css";
-import SectionCard from "./SectionCard";
+import InputCard from "./InputCard";
 
 function InputContainer() {
   const headerFields = [
@@ -27,21 +27,21 @@ function InputContainer() {
 
   return (
     <div className="input-container">
-      <SectionCard
+      <InputCard
         title="Personal Details"
         fields={headerFields}
         initialData={{}}
         multiple={false}
         showDeleteButton={false}
       />
-      <SectionCard
+      <InputCard
         title="Experience"
         fields={experienceFields}
         initialData={{}}
         multiple={true}
         showDeleteButton={true}
       />
-      <SectionCard
+      <InputCard
         title="Education"
         fields={educationFields}
         initialData={{}}

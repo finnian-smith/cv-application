@@ -1,9 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import InputForm from "./InputForm";
-import "../styles/SectionCard.css";
+import "../styles/InputCard.css";
 
-const SectionCard = ({
+const InputCard = ({
   title,
   fields,
   initialData,
@@ -110,7 +110,7 @@ const SectionCard = ({
   );
 };
 
-SectionCard.propTypes = {
+InputCard.propTypes = {
   title: PropTypes.string.isRequired,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
@@ -124,4 +124,4 @@ SectionCard.propTypes = {
   showDeleteButton: PropTypes.bool,
 };
 
-export default SectionCard;
+export default InputCard;
