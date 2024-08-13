@@ -1,7 +1,8 @@
-import "../styles/InputContainer.css";
 import InputCard from "./InputCard";
+import PropTypes from "prop-types";
+import "../styles/InputContainer.css";
 
-function InputContainer() {
+function InputContainer({ formData, onFormChange }) {
   const headerFields = [
     { label: "Full Name", name: "fullName", type: "text" },
     { label: "Email", name: "email", type: "email" },
@@ -30,26 +31,38 @@ function InputContainer() {
       <InputCard
         title="Personal Details"
         fields={headerFields}
-        initialData={{}}
+        data={formData.personalDetails}
+        onFormChange={(data) => onFormChange("personalDetails", data)}
         multiple={false}
         showDeleteButton={false}
       />
       <InputCard
         title="Experience"
         fields={experienceFields}
-        initialData={{}}
+        data={formData.experience}
+        onFormChange={(data) => onFormChange("experience", data)}
         multiple={true}
         showDeleteButton={true}
       />
       <InputCard
         title="Education"
         fields={educationFields}
-        initialData={{}}
+        data={formData.education}
+        onFormChange={(data) => onFormChange("education", data)}
         multiple={true}
         showDeleteButton={true}
       />
     </div>
   );
 }
+
+InputContainer.propTypes = {
+  formData: PropTypes.shape({
+    personalDetails: PropTypes.object.isRequired,
+    experience: PropTypes.arrayOf(PropTypes.object).isRequired,
+    education: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  onFormChange: PropTypes.func.isRequired,
+};
 
 export default InputContainer;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import InputForm from "./InputForm";
 import "../styles/InputCard.css";
@@ -6,14 +6,23 @@ import "../styles/InputCard.css";
 const InputCard = ({
   title,
   fields,
-  initialData,
+  data,
+  onFormChange,
   multiple,
   showDeleteButton,
 }) => {
-  const [entries, setEntries] = useState(multiple ? [] : [initialData]);
-  const [currentEntry, setCurrentEntry] = useState(initialData);
-  const [isEditing, setIsEditing] = useState(title == "Personal Details"); // set to false either depending on personal details approach
+  const [entries, setEntries] = useState(multiple ? data : [data]);
+  const [currentEntry, setCurrentEntry] = useState(data);
+  const [isEditing, setIsEditing] = useState(title == "Personal Details");
   const [editIndex, setEditIndex] = useState(null);
+
+  // effect to sync local entries state with prop data
+  useEffect(() => {
+    setEntries(multiple ? data : [data]);
+    if (!multiple) {
+      setCurrentEntry(data);
+    }
+  }, [data, multiple]);
 
   const handleFormChange = (name, value) => {
     setCurrentEntry({
@@ -24,22 +33,21 @@ const InputCard = ({
 
   const handleSave = () => {
     if (multiple) {
+      const updatedEntries = [...entries];
       if (editIndex !== null) {
-        // update existing entry
-        const updatedEntries = [...entries];
         updatedEntries[editIndex] = currentEntry;
-        setEntries(updatedEntries);
-        setEditIndex(null);
       } else {
-        // add new entry
-        setEntries([...entries, currentEntry]);
+        updatedEntries.push(currentEntry);
       }
+      setEntries(updatedEntries);
+      onFormChange(updatedEntries);
     } else {
-      // update single entry (personal details)
       setEntries([currentEntry]);
+      onFormChange(currentEntry);
     }
-    setCurrentEntry(initialData); // reset form after save
+    setCurrentEntry(multiple ? {} : data);
     setIsEditing(false);
+    setEditIndex(null);
   };
 
   const handleEdit = (index) => {
@@ -49,16 +57,19 @@ const InputCard = ({
   };
 
   const handleAddNew = () => {
-    setCurrentEntry(initialData); // reset to initial data for new entry
+    setCurrentEntry({});
     setIsEditing(true);
-    setEditIndex(null); // ensure new entry is being created
+    setEditIndex(null);
   };
 
   const handleDelete = () => {
-    const updatedEntries = entries.filter((_, i) => i !== editIndex);
-    setEntries(updatedEntries);
-    setIsEditing(false); // exit edit mode after deletion
-    setEditIndex(null);
+    if (editIndex !== null) {
+      const updatedEntries = entries.filter((_, i) => i !== editIndex);
+      setEntries(updatedEntries);
+      onFormChange(updatedEntries);
+      setIsEditing(false);
+      setEditIndex(null);
+    }
   };
 
   return (
@@ -119,9 +130,13 @@ InputCard.propTypes = {
       type: PropTypes.string.isRequired,
     })
   ).isRequired,
-  initialData: PropTypes.object.isRequired,
-  multiple: PropTypes.bool,
-  showDeleteButton: PropTypes.bool,
+  data: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.arrayOf(PropTypes.object),
+  ]).isRequired,
+  onFormChange: PropTypes.func.isRequired,
+  multiple: PropTypes.bool.isRequired,
+  showDeleteButton: PropTypes.bool.isRequired,
 };
 
 export default InputCard;
