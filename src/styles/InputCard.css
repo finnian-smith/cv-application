@@ -1,5 +1,5 @@
 .section-card {
-  margin: 20px 0;
+  /* margin: 20px 0 0; */
   padding: 20px;
   background-color: var(--primary-background-color);
   width: 100%;
@@ -7,17 +7,20 @@
   font-family: var(--primary-font-family);
 }
 
-.saved-content {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  padding: 5px 20px;
-  border-radius: var(--border-radius-style);
-  margin: 10px 0;
+.section-card:first-child {
+  margin: 20px 0 0;
 }
 
-.saved-data p {
+.saved-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-background-color);
+  padding: 15px 20px;
+  border-radius: var(--border-radius-style);
   margin: 10px 0;
+  gap: 10px;
 }
 
 .button-group {
@@ -51,11 +54,7 @@
 }
 
 .edit-button {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  margin-bottom: 15px;
-  width: 30%;
+  margin-top: 0px;
 }
 
 .add-button {

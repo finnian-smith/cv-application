@@ -72,6 +72,19 @@ const InputCard = ({
     }
   };
 
+  const getEntrySummary = (entry) => {
+    switch (title) {
+      case "Personal Details":
+        return `${entry.fullName || "Untitled Details"}`;
+      case "Experience":
+        return `${entry.company || "Untitled Company"}`;
+      case "Education":
+        return `${entry.university || "Untitled University"}`;
+      default:
+        return "No Details Available";
+    }
+  };
+
   return (
     <div className="section-card">
       <h2 className="section-title">{title}</h2>
@@ -98,13 +111,11 @@ const InputCard = ({
         <>
           {entries.map((entry, index) => (
             <div key={index} className="saved-content">
-              <div className="saved-data">
-                {fields.map((field) => (
-                  <p key={field.name}>
-                    <strong>{field.label}:</strong> {entry[field.name]}
-                  </p>
-                ))}
-              </div>
+              {/* <div className="saved-data"> */}
+              <p>
+                <strong>{getEntrySummary(entry)}</strong>
+              </p>
+              {/* </div> */}
               <button onClick={() => handleEdit(index)} className="edit-button">
                 Edit
               </button>

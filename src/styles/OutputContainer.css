@@ -4,14 +4,22 @@
   flex-direction: column;
   align-self: center;
   min-height: 100vh;
-  /* border: 3px solid red; */
   box-shadow: var(--box-shadow-style);
   width: 80%;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 1024px) {
   .output-container {
     align-self: flex-start;
     margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .output-container {
+    min-height: fit-content;
+    padding-bottom: 50px;
+    max-width: 1200px;
   }
 }

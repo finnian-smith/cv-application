@@ -8,5 +8,6 @@
   .app {
     flex-direction: row;
     padding-right: 20px;
+    justify-content: center;
   }
 }

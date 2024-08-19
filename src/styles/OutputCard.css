@@ -69,17 +69,3 @@
 .bold-font {
   font-weight: 700;
 }
-
-/* old code */
-.saved-content {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  padding: 5px 20px;
-  border-radius: var(--border-radius-style);
-  margin: 10px 0;
-}
-
-.saved-data p {
-  margin: 10px 0;
-}
