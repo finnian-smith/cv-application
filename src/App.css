@@ -1,0 +1,12 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-background-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .app {
+    flex-direction: row;
+    padding-right: 20px;
+  }
+}

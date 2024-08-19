@@ -1,0 +1,17 @@
+.output-container {
+  background-color: var(--secondary-background-color);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  min-height: 100vh;
+  /* border: 3px solid red; */
+  box-shadow: var(--box-shadow-style);
+  width: 80%;
+}
+
+@media screen and (min-width: 1024px) {
+  .output-container {
+    align-self: flex-start;
+    margin-top: 40px;
+  }
+}

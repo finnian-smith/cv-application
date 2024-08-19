@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import OutputCard from "./OutputCard";
-// import "../styles/OutputContainer.css";
+import "../styles/OutputContainer.css";
 
 function OutputContainer({ formData }) {
   return (

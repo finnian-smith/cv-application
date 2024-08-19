@@ -19,10 +19,10 @@ function App() {
   };
 
   return (
-    <>
+    <div className="app">
       <InputContainer formData={formData} onFormChange={handleFormChange} />
       <OutputContainer formData={formData} />
-    </>
+    </div>
   );
 }
 
