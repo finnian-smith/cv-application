@@ -111,11 +111,9 @@ const InputCard = ({
         <>
           {entries.map((entry, index) => (
             <div key={index} className="saved-content">
-              {/* <div className="saved-data"> */}
               <p>
                 <strong>{getEntrySummary(entry)}</strong>
               </p>
-              {/* </div> */}
               <button onClick={() => handleEdit(index)} className="edit-button">
                 Edit
               </button>
