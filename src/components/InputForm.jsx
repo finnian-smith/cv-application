@@ -7,14 +7,25 @@ const InputForm = ({ fields, data, onChange }) => {
       {fields.map((field, index) => (
         <div key={index} className="form-group">
           <label className="form-label">{field.label}</label>
-          <input
-            className="form-input"
-            type={field.type}
-            id={field.name}
-            name={field.name}
-            value={data[field.name] || ""}
-            onChange={(e) => onChange(e.target.name, e.target.value)}
-          />
+          {field.name === "description" ? (
+            <textarea
+              className="form-input"
+              id={field.name}
+              name={field.name}
+              value={data[field.name] || ""}
+              onChange={(e) => onChange(e.target.name, e.target.value)}
+              rows="5"
+            />
+          ) : (
+            <input
+              className="form-input"
+              type={field.type}
+              id={field.name}
+              name={field.name}
+              value={data[field.name] || ""}
+              onChange={(e) => onChange(e.target.name, e.target.value)}
+            />
+          )}
         </div>
       ))}
     </form>

@@ -28,7 +28,13 @@ const OutputCard = ({ title, data }) => {
         </div>
       </div>
       <div className="item-description">
-        <p>{entry.description || "Job description goes here."}</p>
+        <ul>
+          {(entry.description || "Job description goes here.")
+            .split("\n")
+            .map((line, index) => (
+              <li key={index}>{line}</li>
+            ))}
+        </ul>
       </div>
     </>
   );

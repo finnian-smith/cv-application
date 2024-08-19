@@ -31,10 +31,19 @@ label {
   font-weight: 500;
 }
 
-input {
+input,
+textarea {
   background-color: var(--primary-background-color);
+  font-family: var(--primary-font-family);
   border: none;
   border-radius: var(--border-radius-style);
+  padding: 5px;
+}
+
+input {
   height: 30px;
-  padding: 0 5px;
+}
+
+textarea {
+  resize: none;
 }

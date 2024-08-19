@@ -66,6 +66,15 @@
   margin-top: 8px;
 }
 
+.item-description ul {
+  list-style-type: disc; /* Bullet points */
+  padding-left: 20px; /* Indent the list */
+}
+
+.item-description li {
+  margin-bottom: 5px; /* Space between bullet points */
+}
+
 .bold-font {
   font-weight: 700;
 }
